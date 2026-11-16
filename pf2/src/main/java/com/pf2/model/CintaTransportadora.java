@@ -27,4 +27,8 @@ public class CintaTransportadora {
             bol = false;
         }
     }
+
+    public synchronized int getBaterias(){
+        return baterias;
+    }
 }

@@ -1,10 +1,12 @@
 package com.pf2.tasks;
 
 import com.pf2.model.CintaTransportadora;
+import com.pf2.model.SupervisorCentral;
 
 public class AGVTask implements Runnable{
     
     CintaTransportadora cinta = new CintaTransportadora();
+    SupervisorCentral supervisor = new SupervisorCentral();
 
     public AGVTask(CintaTransportadora cinta){
         this.cinta = cinta;
@@ -21,7 +23,6 @@ public class AGVTask implements Runnable{
             }
 
             cinta.inc();
-            IO.println("Bateria cargada en la cinta.");
         }finally{
             cinta.CintaVacia();
         }

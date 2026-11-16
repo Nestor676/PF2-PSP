@@ -3,7 +3,9 @@ package com.pf2.model;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class CintaTransportadora {
-    ReentrantLock lock = new ReentrantLock();
+    private ReentrantLock lock = new ReentrantLock();
+    public boolean bol = true;
+    private int baterias = 0; 
 
     public void CintaLlena(){
         lock.lock();
@@ -11,5 +13,18 @@ public class CintaTransportadora {
 
     public void CintaVacia(){
         lock.unlock();
+    }
+
+    public synchronized void inc(){
+        baterias++;
+    }
+
+    public synchronized void dec(){
+        if(baterias > 0){
+            bol = true;
+            baterias--;
+        }else{
+            bol = false;
+        }
     }
 }

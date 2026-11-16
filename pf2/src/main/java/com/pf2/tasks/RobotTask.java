@@ -17,6 +17,7 @@ public class RobotTask implements Runnable{
 
     @Override 
     public void run(){
+        
         try{
             try{
                 sol.sem.acquire();
